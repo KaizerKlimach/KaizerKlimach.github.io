@@ -1,0 +1,35 @@
+name: Sync game metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/links.json'
+  workflow_dispatch: {}
+  schedule:
+    # Weekly refresh, in case a store page's description or screenshots changed.
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch Steam & itch.io metadata
+        run: node scripts/fetch-metadata.mjs
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/games.json data/jams.json
+          git diff --cached --quiet || git commit -m "Sync game metadata [skip ci]"
+          git push

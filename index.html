@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KaizerKlimach — Pixel Artist</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top">
+    <img src="assets/logo.png" alt="KaizerKlimach logo">
+    <span>KAIZERKLIMACH</span>
+  </a>
+  <nav class="links">
+    <a href="#about">About</a>
+    <a href="#steam">Steam</a>
+    <a href="#jams">Jams</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div id="top" class="hero">
+  <img class="logo-hero" src="assets/logo.png" alt="KaizerKlimach logo">
+  <div class="copy">
+    <span class="alias">KAIZERKLIMACH</span>
+    <h1>Sergey Klimov draws things that <em>move</em>.</h1>
+    <p>Pixel artist crafting sprites, animation and environments for indie and published games since 2017. Full pipeline, Aseprite to in-engine implementation.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#steam">See the work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-head"><h2>About</h2></div>
+  <div class="about-text">
+    <p>Comfortable across the full pixel pipeline — from first sprite sketch in Aseprite through animation, palette work, and in-engine implementation.</p>
+    <p>Open to freelance collaborations, jam teams, and full pixel-art production for indie studios.</p>
+  </div>
+  <div class="facts">
+    <span><b>Since</b> 2017</span>
+    <span><b>X</b> @KaizerKlimach</span>
+    <span><b>Itch.io</b> kaizerklimach.itch.io</span>
+  </div>
+</section>
+
+<section id="steam">
+  <div class="section-head"><h2>Steam releases</h2><span class="count">STUDIO ART TEAMS</span></div>
+  <div class="grid" id="steamGrid"></div>
+</section>
+
+<section id="jams">
+  <div class="section-head"><h2>Jam games</h2><span class="count">ITCH.IO</span></div>
+  <div class="grid" id="jamGrid"></div>
+</section>
+
+<section id="gallery">
+  <div class="section-head"><h2>Gallery</h2><span class="count">WORK SAMPLES</span></div>
+  <div class="gallery-tabs" id="galleryTabs"></div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<section id="contact">
+  <div class="section-head"><h2>Contact</h2></div>
+  <p style="color:var(--fg-dim); font-size:.9rem;">Let's make something.</p>
+  <div class="contact-row">
+    <a href="https://x.com/KaizerKlimach" target="_blank" rel="noopener">X — @KaizerKlimach</a>
+    <a href="https://kaizerklimach.itch.io" target="_blank" rel="noopener">itch.io — kaizerklimach</a>
+    <a class="soon" href="#" onclick="return false;">Email — coming soon</a>
+  </div>
+</section>
+
+<footer>
+  © KaizerKlimach — frames drawn one pixel at a time since 2017. ·
+  <a href="admin.html" style="color:var(--fg-dim);">admin</a>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

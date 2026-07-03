@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Deadlock Station",
+    "studio": "Luxorix Games / Critical Reflex",
+    "desc": "Tactical rogue-like RPG with indirect squad control.",
+    "link": "https://store.steampowered.com/app/2327640/Deadlock_Station/",
+    "images": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327640/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327640/capsule_616x353.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327640/72f43ec227cbb137b6157a6f51a0dee4a33b50ab/ss_72f43ec227cbb137b6157a6f51a0dee4a33b50ab.1920x1080.jpg"
+    ]
+  },
+  {
+    "title": "Akatori",
+    "studio": "Contrast Games",
+    "desc": "Metroidvania across five distinct eras, wielding a living staff.",
+    "link": "https://store.steampowered.com/app/1442520/Akatori/",
+    "images": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442520/9fb9ca2eb59f13b22e84c6eef22b5e03e5d5c906/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442520/afcf561370d0fe22c3f0000dc2188d84355326f3/capsule_616x353.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442520/c16d461383a7a446b149a70053ad8676addb1d00/ss_c16d461383a7a446b149a70053ad8676addb1d00.1920x1080.jpg"
+    ]
+  },
+  {
+    "title": "The Unliving",
+    "studio": "RocketBrush Games / Team17",
+    "desc": "Rogue-lite necromancer action RPG.",
+    "link": "https://store.steampowered.com/app/986040/The_Unliving/",
+    "images": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/986040/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/986040/capsule_616x353.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/986040/page_bg_raw.jpg"
+    ]
+  },
+  {
+    "title": "BPM Bitcrushed",
+    "studio": "Awe Interactive / Kwalee",
+    "desc": "Rhythm-driven roguelite dungeon crawler.",
+    "link": "https://store.steampowered.com/app/3448070/BPM_Bitcrushed/",
+    "images": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448070/1f0a058a93cfe5399a79652a086aea56b927b60c/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448070/ce439bbd7d320d82779eed16b89c94bc170936d6/capsule_616x353.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448070/0653e86864344cac6535aee477e18c2acfc96e08/page_bg_raw.jpg"
+    ]
+  },
+  {
+    "title": "Wizard Cats",
+    "studio": "BigFrogg Studios",
+    "desc": "Spell-crafting action roguelite starring wizard cats.",
+    "link": "https://store.steampowered.com/app/3176500/Wizard_Cats/",
+    "images": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3176500/ff9155af86ff504bbe1f8dd56e536ff5db701b27/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3176500/8a0193b77558a111407f6e58b989ea75691a9004/capsule_616x353.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3176500/264543e57b45740e1f096e7a3624887a2c8b001f/ss_264543e57b45740e1f096e7a3624887a2c8b001f.1920x1080.jpg"
+    ]
+  },
+  {
+    "title": "Warhammer Survivors",
+    "studio": "Auroch Digital",
+    "desc": "Bullet-heaven survivors set in the Warhammer universe.",
+    "link": "https://store.steampowered.com/app/3669620/Warhammer_Survivors/",
+    "images": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669620/19f2843fe6ced329627a945855ca989c6c0b6104/header_alt_assets_0.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669620/551bc7d10ffe0dab2dceeb6add75cf47a2e4d8ac/capsule_616x353.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669620/8242175bb7ed5927dd0ed09466a812e76aeb6c20/ss_8242175bb7ed5927dd0ed09466a812e76aeb6c20.1920x1080.jpg"
+    ]
+  }
+]

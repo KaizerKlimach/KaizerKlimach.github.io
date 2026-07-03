@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — KaizerKlimach</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KaizerKlimach logo">
+    <span>KAIZERKLIMACH</span>
+  </a>
+  <nav class="links"><a href="index.html">← Back to site</a></nav>
+</header>
+
+<div class="admin-wrap">
+  <h1>Admin</h1>
+  <p class="sub">
+    This page has no server of its own — every action here is a direct commit to your GitHub repo
+    via a Personal Access Token. Changes go live automatically through GitHub Pages after each commit
+    (Steam/itch links additionally trigger the "Sync game metadata" Action, which takes a minute or two).
+  </p>
+
+  <div class="panel">
+    <h2>1 · Connect your repository</h2>
+    <p class="desc">
+      Create a token at
+      <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener" style="color:var(--accent-gold);">github.com/settings/tokens</a>
+      (fine-grained token, scoped to this one repo, with <b>Contents: Read and write</b> permission).
+      The token is stored only in this browser's local storage — never committed anywhere.
+    </p>
+    <div class="row-3">
+      <div class="field"><label>Owner (username)</label><input id="cfgOwner" placeholder="KaizerKlimach"></div>
+      <div class="field"><label>Repository name</label><input id="cfgRepo" placeholder="portfolio"></div>
+      <div class="field"><label>Branch</label><input id="cfgBranch" placeholder="main"></div>
+    </div>
+    <div class="field"><label>Personal access token</label><input id="cfgToken" type="password" placeholder="github_pat_…"></div>
+    <button class="btn small solid" id="saveSetup" type="button">Connect</button>
+    <div class="status" id="setupStatus"></div>
+  </div>
+
+  <div class="panel">
+    <h2>2 · Steam & itch.io games</h2>
+    <p class="desc">
+      Paste a store page link. A GitHub Action fetches the title, studio, description and screenshots
+      automatically and publishes a card — no need to type any of that by hand.
+    </p>
+    <div class="field">
+      <label>Steam or itch.io URL</label>
+      <input id="newLinkUrl" placeholder="https://store.steampowered.com/app/… or https://you.itch.io/…">
+    </div>
+    <button class="btn small solid" id="addLinkBtn" type="button">Add link</button>
+    <div class="status" id="linksStatus"></div>
+    <div class="link-list" id="linksList"></div>
+  </div>
+
+  <div class="panel">
+    <h2>3 · Work samples (gallery)</h2>
+    <p class="desc">Images are committed straight into <code>assets/gallery/&lt;category&gt;/</code> in the repo.</p>
+    <div class="field">
+      <label>Category</label>
+      <div class="cat-pills" id="galCatPills"></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Image file</label><input id="galFile" type="file" accept="image/*"></div>
+      <div class="field"><label>Title (optional)</label><input id="galTitle" placeholder="Forest tileset v2"></div>
+    </div>
+    <button class="btn small solid" id="galUploadBtn" type="button">Upload</button>
+    <div class="status" id="galStatus"></div>
+    <div class="gallery-admin-grid" id="galGrid"></div>
+  </div>
+</div>
+
+<footer>© KaizerKlimach — admin panel</footer>
+
+<script src="assets/admin.js"></script>
+</body>
+</html>
