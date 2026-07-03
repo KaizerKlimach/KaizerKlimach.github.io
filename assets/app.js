@@ -87,7 +87,7 @@ function renderGalleryTabs() {
   wrap.innerHTML = '';
   const all = document.createElement('button');
   all.className = 'gtab' + (activeGalleryCat === 'all' ? ' active' : '');
-  all.textContent = 'Все';
+  all.textContent = 'All';
   all.addEventListener('click', () => { activeGalleryCat = 'all'; renderGalleryTabs(); renderGallery(); });
   wrap.appendChild(all);
   CATS.forEach(c => {
