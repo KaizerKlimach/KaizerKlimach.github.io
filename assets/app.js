@@ -4,10 +4,10 @@
 // (scripts/fetch-metadata.mjs); gallery.json is written by admin.html.
 
 const CATS = [
-  { id: 'misc', label: 'Разное' },
-  { id: 'props', label: 'Пропсы' },
-  { id: 'animations', label: 'Анимации' },
-  { id: 'tiles', label: 'Тайлы' },
+  { id: 'misc', label: 'Misc' },
+  { id: 'props', label: 'Props' },
+  { id: 'animations', label: 'Animations' },
+  { id: 'tiles', label: 'Tiles' },
 ];
 
 async function loadJson(path, fallback) {
