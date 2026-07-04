@@ -8,7 +8,6 @@ const CATS = [
   { id: 'props', label: 'Props' },
   { id: 'animations', label: 'Animations' },
   { id: 'tiles', label: 'Tiles' },
-  { id: 'vfx', label: 'VFX' },
 ];
 
 async function loadJson(path, fallback) {

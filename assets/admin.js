@@ -6,10 +6,10 @@
 // Gallery uploads commit the image file itself plus an entry in data/gallery.json.
 
 const CATS = [
-  { id: 'misc', label: 'Разное' },
-  { id: 'props', label: 'Пропсы' },
-  { id: 'animations', label: 'Анимации' },
-  { id: 'tiles', label: 'Тайлы' },
+  { id: 'misc', label: 'Misc' },
+  { id: 'props', label: 'Props' },
+  { id: 'animations', label: 'Animations' },
+  { id: 'tiles', label: 'Tiles' },
 ];
 
 const cfg = {
@@ -27,6 +27,30 @@ function ready() {
   return !!(cfg.owner && cfg.repo && cfg.token);
 }
 
+// Accepts "KaizerKlimach/KaizerKlimach.github.io", a full github.com URL, or
+// plain "owner" / "repo" values pasted separately, and normalizes them.
+function sanitizeOwnerRepo(ownerRaw, repoRaw) {
+  let owner = (ownerRaw || '').trim();
+  let repo = (repoRaw || '').trim();
+
+  // Someone pasted a full URL into either field.
+  const urlLike = /github\.com\/([^\/\s]+)\/([^\/\s]+)/i;
+  const fromOwner = owner.match(urlLike);
+  const fromRepo = repo.match(urlLike);
+  if (fromRepo) { owner = fromRepo[1]; repo = fromRepo[2]; }
+  else if (fromOwner) { owner = fromOwner[1]; repo = fromOwner[2]; }
+
+  // Strip protocol/domain fragments, leading @ or slashes, trailing slashes, and a stray ".git".
+  const clean = s => s
+    .replace(/^https?:\/\//i, '')
+    .replace(/^github\.com\//i, '')
+    .replace(/^@/, '')
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\.git$/i, '');
+
+  return { owner: clean(owner), repo: clean(repo) };
+}
+
 function utf8ToBase64(str) {
   return btoa(unescape(encodeURIComponent(str)));
 }
@@ -35,15 +59,22 @@ function base64ToUtf8(b64) {
 }
 
 async function ghRequest(path, options = {}) {
-  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/${path}`, {
-    ...options,
-    headers: {
-      Authorization: `token ${cfg.token}`,
-      Accept: 'application/vnd.github+json',
-      ...(options.headers || {}),
-    },
-  });
-  return res;
+  const url = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}${path ? '/' + path : ''}`;
+  try {
+    return await fetch(url, {
+      ...options,
+      headers: {
+        Authorization: `token ${cfg.token}`,
+        Accept: 'application/vnd.github+json',
+        ...(options.headers || {}),
+      },
+    });
+  } catch (err) {
+    // fetch() throws a bare "Failed to fetch" TypeError for anything from a
+    // typo'd repo name to an offline connection — surface the actual URL so
+    // it's obvious what was attempted.
+    throw new Error(`Network request to ${url} failed before getting a response (${err.message}). Check the owner/repo spelling and your connection.`);
+  }
 }
 
 async function ghGetFile(path) {
@@ -67,6 +98,8 @@ async function ghPutFile(path, contentBase64, message, sha) {
   }
   return res.json();
 }
+
+
 
 async function ghDeleteFile(path, message, sha) {
   const res = await ghRequest(`contents/${path}`, {
@@ -120,18 +153,29 @@ function initSetup() {
   tokenInput.value = cfg.token;
 
   document.getElementById('saveSetup').addEventListener('click', async () => {
-    cfg.owner = ownerInput.value.trim();
-    cfg.repo = repoInput.value.trim();
+    const { owner, repo } = sanitizeOwnerRepo(ownerInput.value, repoInput.value);
+    cfg.owner = owner;
+    cfg.repo = repo;
     cfg.branch = branchInput.value.trim() || 'main';
     cfg.token = tokenInput.value.trim();
-    setStatus(statusEl, 'pending', 'Checking access…');
+    ownerInput.value = owner;
+    repoInput.value = repo;
+
+    if (!cfg.owner || !cfg.repo || !cfg.token) {
+      setStatus(statusEl, 'err', 'Fill in owner, repository name and token first.');
+      return;
+    }
+
+    setStatus(statusEl, 'pending', `Checking access to ${cfg.owner}/${cfg.repo}…`);
     try {
       const res = await ghRequest('');
+      if (res.status === 404) throw new Error(`repo not found — double check "${cfg.owner}/${cfg.repo}" is spelled exactly like the GitHub URL`);
+      if (res.status === 401) throw new Error('token was rejected — it may be expired, wrong, or missing "Contents: Read and write" permission');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus(statusEl, 'ok', `Connected to ${cfg.owner}/${cfg.repo} (branch: ${cfg.branch}).`);
       refreshAllPanels();
     } catch (err) {
-      setStatus(statusEl, 'err', `Could not reach that repo with this token: ${err.message}`);
+      setStatus(statusEl, 'err', `Could not reach that repo: ${err.message}`);
     }
   });
 

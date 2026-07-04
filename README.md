@@ -2,7 +2,7 @@
 
 Static site for GitHub Pages. Steam and itch.io cards are generated from links only —
 a GitHub Action fetches the title, studio, description and screenshots for you. Gallery
-images (Разное / Пропсы / Анимации / Тайлы) live as real files in this repo.
+images (Misc / Props / Animations / Tiles) live as real files in this repo.
 
 ## How it fits together
 
