@@ -99,19 +99,27 @@ function renderGalleryTabs() {
   });
 }
 
+let currentLightboxItems = [];
+let currentLightboxIndex = 0;
+
 function renderGallery() {
   const grid = document.getElementById('galleryGrid');
   grid.innerHTML = '';
   const cats = activeGalleryCat === 'all' ? CATS : CATS.filter(c => c.id === activeGalleryCat);
   let any = false;
+  const flatItems = [];
   cats.forEach(cat => {
     const items = galleryData.filter(g => g.category === cat.id);
     if (items.length) {
       any = true;
       items.forEach(it => {
+        const caption = `${cat.label}${it.title ? ' — ' + it.title : ''}`;
         const d = document.createElement('div');
         d.className = 'gallery-item';
-        d.innerHTML = `<img src="${it.path}" alt="${it.title || cat.label}" loading="lazy"><div class="cap">${cat.label}${it.title ? ' — ' + it.title : ''}</div>`;
+        d.innerHTML = `<img src="${it.path}" alt="${it.title || cat.label}" loading="lazy"><div class="cap">${caption}</div>`;
+        const idx = flatItems.length;
+        flatItems.push({ src: it.path, caption });
+        d.addEventListener('click', () => openLightbox(flatItems, idx));
         grid.appendChild(d);
       });
     }
@@ -125,6 +133,52 @@ function renderGallery() {
     });
   }
 }
+
+/* ---------- LIGHTBOX ---------- */
+const lightboxEl = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+
+function openLightbox(items, index) {
+  currentLightboxItems = items;
+  currentLightboxIndex = index;
+  showLightboxItem();
+  lightboxEl.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightboxEl.hidden = true;
+  document.body.style.overflow = '';
+}
+function showLightboxItem() {
+  const item = currentLightboxItems[currentLightboxIndex];
+  if (!item) return;
+  lbImg.src = item.src;
+  lbImg.alt = item.caption;
+  lbCaption.textContent = item.caption;
+  const multiple = currentLightboxItems.length > 1;
+  document.getElementById('lbPrev').style.display = multiple ? 'flex' : 'none';
+  document.getElementById('lbNext').style.display = multiple ? 'flex' : 'none';
+}
+function lightboxPrev() {
+  currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxItems.length) % currentLightboxItems.length;
+  showLightboxItem();
+}
+function lightboxNext() {
+  currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxItems.length;
+  showLightboxItem();
+}
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', lightboxPrev);
+document.getElementById('lbNext').addEventListener('click', lightboxNext);
+lightboxEl.addEventListener('click', e => { if (e.target === lightboxEl) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (lightboxEl.hidden) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxPrev();
+  if (e.key === 'ArrowRight') lightboxNext();
+});
 
 (async function init() {
   const [games, jams, gallery] = await Promise.all([
