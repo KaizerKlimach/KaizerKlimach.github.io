@@ -62,18 +62,18 @@
 
   <div class="panel">
     <h2>3 · Work samples (gallery)</h2>
-    <p class="desc">Images are committed straight into <code>assets/gallery/&lt;category&gt;/</code> in the repo.</p>
-    <div class="field">
-      <label>Category</label>
-      <div class="cat-pills" id="galCatPills"></div>
-    </div>
-    <div class="row-2">
-      <div class="field"><label>Image file</label><input id="galFile" type="file" accept="image/*"></div>
-      <div class="field"><label>Title (optional)</label><input id="galTitle" placeholder="Forest tileset v2"></div>
-    </div>
-    <button class="btn small solid" id="galUploadBtn" type="button">Upload</button>
+    <p class="desc">
+      Copy your images into the matching folder in your local clone — <code>assets/gallery/misc/</code>,
+      <code>assets/gallery/props/</code>, <code>assets/gallery/animations/</code> or
+      <code>assets/gallery/tiles/</code> — then <code>git push</code>. Once the push is on GitHub, click
+      <b>Scan repository</b> below: it reads whatever's actually in those four folders and rebuilds
+      <code>data/gallery.json</code> to match, category by category. Re-run it any time you add, rename or
+      remove files — titles you've edited here are kept where the file path is unchanged.
+    </p>
+    <button class="btn small solid" id="galScanBtn" type="button">Scan repository</button>
+    <button class="btn small" id="galSaveTitlesBtn" type="button" style="display:none; margin-left:8px;">Save titles</button>
     <div class="status" id="galStatus"></div>
-    <div class="gallery-admin-grid" id="galGrid"></div>
+    <div id="galGrid" style="margin-top:16px;"></div>
   </div>
 </div>
 

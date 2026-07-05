@@ -266,85 +266,103 @@ function initLinksPanel() {
 }
 
 /* ================= GALLERY PANEL ================= */
+const IMAGE_EXT = /\.(png|jpe?g|gif|webp)$/i;
+
+function humanizeFilename(name) {
+  return name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim();
+}
+
 function initGalleryPanel() {
-  const pillsEl = document.getElementById('galCatPills');
-  const fileInput = document.getElementById('galFile');
-  const titleInput = document.getElementById('galTitle');
-  const uploadBtn = document.getElementById('galUploadBtn');
+  const scanBtn = document.getElementById('galScanBtn');
   const statusEl = document.getElementById('galStatus');
   const gridEl = document.getElementById('galGrid');
-  let selectedCat = CATS[0].id;
-
-  pillsEl.innerHTML = CATS.map(c => `<button type="button" class="cat-pill${c.id === selectedCat ? ' active' : ''}" data-cat="${c.id}">${c.label}</button>`).join('');
-  pillsEl.querySelectorAll('.cat-pill').forEach(p => {
-    p.addEventListener('click', () => {
-      selectedCat = p.dataset.cat;
-      pillsEl.querySelectorAll('.cat-pill').forEach(x => x.classList.remove('active'));
-      p.classList.add('active');
-    });
-  });
+  const saveBtn = document.getElementById('galSaveTitlesBtn');
 
   async function render() {
     gridEl.innerHTML = '';
+    saveBtn.style.display = 'none';
     if (!ready()) return;
     try {
       const { data } = await readJsonFile('data/gallery.json', []);
-      data.forEach((item, i) => {
-        const d = document.createElement('div');
-        d.className = 'gallery-admin-item';
-        d.innerHTML = `<img src="${item.path}" alt=""><button type="button" title="Delete">×</button>`;
-        d.querySelector('button').addEventListener('click', () => removeItem(i));
-        gridEl.appendChild(d);
-      });
+      renderResults(data);
     } catch (err) {
       gridEl.innerHTML = `<p class="empty-note">Could not load gallery.json: ${err.message}</p>`;
     }
   }
 
-  async function upload() {
-    const file = fileInput.files[0];
-    if (!file) { setStatus(statusEl, 'err', 'Choose an image file first.'); return; }
-    setStatus(statusEl, 'pending', 'Uploading image…');
-    try {
-      const safe = file.name.replace(/[^a-zA-Z0-9.\-]/g, '_');
-      const path = `assets/gallery/${selectedCat}/${Date.now()}-${safe}`;
-      const base64 = await fileToBase64(file);
-      await ghPutFile(path, base64, `Add gallery image: ${safe}`);
-
-      setStatus(statusEl, 'pending', 'Updating gallery.json…');
-      const { data, sha } = await readJsonFile('data/gallery.json', []);
-      data.push({ category: selectedCat, title: titleInput.value.trim(), path });
-      await writeJsonFile('data/gallery.json', data, `Add gallery entry: ${safe}`, sha);
-
-      setStatus(statusEl, 'ok', 'Uploaded. GitHub Pages will rebuild automatically in a minute or two.');
-      fileInput.value = '';
-      titleInput.value = '';
-      render();
-    } catch (err) {
-      setStatus(statusEl, 'err', err.message);
+  function renderResults(items) {
+    gridEl.innerHTML = '';
+    if (!items.length) {
+      gridEl.innerHTML = '<p class="empty-note">Nothing found yet. Push some images into assets/gallery/&lt;category&gt;/ and click Scan.</p>';
+      saveBtn.style.display = 'none';
+      return;
     }
+    items.forEach((item, i) => {
+      const catLabel = (CATS.find(c => c.id === item.category) || {}).label || item.category;
+      const row = document.createElement('div');
+      row.className = 'item-row';
+      row.innerHTML = `
+        <img src="${item.path}" alt="">
+        <div class="info">
+          <input data-title-idx="${i}" value="${(item.title || '').replace(/"/g, '&quot;')}" style="width:100%; background:var(--bg-void); border:1px solid var(--border-pixel); color:var(--fg-main); padding:5px 7px; font-size:.78rem; margin-bottom:3px;">
+          <div class="s">${catLabel} · ${item.path}</div>
+        </div>`;
+      gridEl.appendChild(row);
+    });
+    saveBtn.style.display = 'inline-flex';
+    saveBtn.dataset.count = items.length;
   }
 
-  async function removeItem(index) {
-    if (!confirm('Delete this gallery image? This removes the file from the repo too.')) return;
-    setStatus(statusEl, 'pending', 'Removing…');
+  async function scan() {
+    setStatus(statusEl, 'pending', 'Scanning assets/gallery/ folders…');
     try {
-      const { data, sha } = await readJsonFile('data/gallery.json', []);
-      const item = data[index];
-      data.splice(index, 1);
-      await writeJsonFile('data/gallery.json', data, `Remove gallery entry`, sha);
-      if (item?.path) {
-        const fileMeta = await ghGetFile(item.path);
-        if (fileMeta) await ghDeleteFile(item.path, `Remove gallery image: ${item.path}`, fileMeta.sha);
+      const { data: existing } = await readJsonFile('data/gallery.json', []);
+      const titleByPath = new Map(existing.map(it => [it.path, it.title]));
+
+      const results = [];
+      for (const cat of CATS) {
+        const listRes = await ghRequest(`contents/assets/gallery/${cat.id}?ref=${encodeURIComponent(cfg.branch)}`);
+        if (listRes.status === 404) continue;
+        if (!listRes.ok) throw new Error(`Could not list assets/gallery/${cat.id}: HTTP ${listRes.status}`);
+        const files = await listRes.json();
+        files
+          .filter(f => f.type === 'file' && IMAGE_EXT.test(f.name))
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .forEach(f => {
+            results.push({
+              category: cat.id,
+              path: f.path,
+              title: titleByPath.has(f.path) ? titleByPath.get(f.path) : humanizeFilename(f.name),
+            });
+          });
       }
-      setStatus(statusEl, 'ok', 'Removed.');
-      render();
+
+      const { sha } = await readJsonFile('data/gallery.json', []);
+      await writeJsonFile('data/gallery.json', results, 'Rescan gallery folders via admin panel', sha);
+      setStatus(statusEl, 'ok', `Found ${results.length} image(s). Site will update in a minute or two.`);
+      renderResults(results);
     } catch (err) {
       setStatus(statusEl, 'err', err.message);
     }
   }
 
-  uploadBtn.addEventListener('click', upload);
+  async function saveTitles() {
+    setStatus(statusEl, 'pending', 'Saving titles…');
+    try {
+      const { data, sha } = await readJsonFile('data/gallery.json', []);
+      gridEl.querySelectorAll('[data-title-idx]').forEach(input => {
+        const i = parseInt(input.dataset.titleIdx, 10);
+        if (data[i]) data[i].title = input.value.trim();
+      });
+      await writeJsonFile('data/gallery.json', data, 'Update gallery titles via admin panel', sha);
+      setStatus(statusEl, 'ok', 'Titles saved.');
+    } catch (err) {
+      setStatus(statusEl, 'err', err.message);
+    }
+  }
+
+  scanBtn.addEventListener('click', scan);
+  saveBtn.addEventListener('click', saveTitles);
   initGalleryPanel.render = render;
 }
 

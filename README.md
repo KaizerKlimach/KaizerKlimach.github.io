@@ -59,9 +59,14 @@ treat the token itself like a password.
   a minute or two, then refresh the site — the card appears automatically with
   screenshots pulled from the store page.
 - **Removing one:** click *Remove* next to it in the same panel.
-- **Gallery uploads:** pick a category, choose an image file, optionally give it a
-  title, click *Upload*. It's committed straight into `assets/gallery/<category>/`
-  and listed in `data/gallery.json`.
+- **Gallery — work samples:** copy image files into the matching local folder
+  (`assets/gallery/misc/`, `props/`, `animations/`, or `tiles/`) and `git push` as
+  usual — no admin form needed for the files themselves. Then open `/admin.html`
+  and click **Scan repository**: it lists what's actually in those four folders on
+  GitHub and rewrites `data/gallery.json` to match. Run it again any time you add,
+  rename, or delete files. Titles default to the filename (dashes/underscores
+  turned into spaces) — edit them in the admin page and click *Save titles*; a
+  later rescan keeps your edited titles for any file whose path hasn't changed.
 
 ## Notes & limits
 
