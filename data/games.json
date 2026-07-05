@@ -1,68 +1,93 @@
 [
   {
     "title": "Deadlock Station",
-    "studio": "Luxorix Games / Critical Reflex",
-    "desc": "Tactical rogue-like RPG with indirect squad control.",
+    "studio": "Luxorix Games / CRITICAL REFLEX",
+    "desc": "Turn the battlefield into your ally in this tactical rogue-like with indirect controls. Assemble a unique squad, destroy the alien invaders with precise planning, and uncover the truth about the Event and the mysterious disappearance of humans.",
     "link": "https://store.steampowered.com/app/2327640/Deadlock_Station/",
     "images": [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327640/header.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327640/capsule_616x353.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327640/72f43ec227cbb137b6157a6f51a0dee4a33b50ab/ss_72f43ec227cbb137b6157a6f51a0dee4a33b50ab.1920x1080.jpg"
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2327640/header.jpg?t=1779333259",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2327640/ss_23c4529e5e97b5f10d74c0d271ac763fcc125bf4.1920x1080.jpg?t=1779333259",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2327640/ss_26d9c0d93e702212df045e8c85e3fc6b08bc4b7a.1920x1080.jpg?t=1779333259",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2327640/aa0a710d87d908cbb482477f1004a91266e346af/ss_aa0a710d87d908cbb482477f1004a91266e346af.1920x1080.jpg?t=1779333259",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2327640/ea120903db5c3b5321133f0a77e15d6dd734e963/ss_ea120903db5c3b5321133f0a77e15d6dd734e963.1920x1080.jpg?t=1779333259"
     ]
   },
   {
     "title": "Akatori",
-    "studio": "Contrast Games",
-    "desc": "Metroidvania across five distinct eras, wielding a living staff.",
+    "studio": "Contrast Games / Games Harbor, Esprit Games",
+    "desc": "Akatori is an epic metroidvania where you wield your staff to fight, jump, and explore diverse realms across different eras. Explore worlds spanning different eras, battle formidable enemies, and help Mako stop the Amber Storms that poison all living things.",
     "link": "https://store.steampowered.com/app/1442520/Akatori/",
     "images": [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442520/9fb9ca2eb59f13b22e84c6eef22b5e03e5d5c906/header.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442520/afcf561370d0fe22c3f0000dc2188d84355326f3/capsule_616x353.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442520/c16d461383a7a446b149a70053ad8676addb1d00/ss_c16d461383a7a446b149a70053ad8676addb1d00.1920x1080.jpg"
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1442520/9fb9ca2eb59f13b22e84c6eef22b5e03e5d5c906/header.jpg?t=1782317962",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1442520/72c6ef52eb70f385c0a34f17c92ac5d1887aff36/ss_72c6ef52eb70f385c0a34f17c92ac5d1887aff36.1920x1080.jpg?t=1782317962",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1442520/4390a701b503e67d7b634bb333eb99e7edefb915/ss_4390a701b503e67d7b634bb333eb99e7edefb915.1920x1080.jpg?t=1782317962",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1442520/9c4d1674a540404a74c83dcfa730bb11a61890cf/ss_9c4d1674a540404a74c83dcfa730bb11a61890cf.1920x1080.jpg?t=1782317962",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1442520/8efab687080e2688901bfa1b788718a6fea2a3c6/ss_8efab687080e2688901bfa1b788718a6fea2a3c6.1920x1080.jpg?t=1782317962"
     ]
   },
   {
     "title": "The Unliving",
-    "studio": "RocketBrush Games / Team17",
-    "desc": "Rogue-lite necromancer action RPG.",
+    "studio": "RocketBrush Games / Team17 Digital",
+    "desc": "Raise the dead as a fearsome Necromancer in the dark world of The Unliving! Lead your undead armies into the endless fight in this rogue-lite action RPG game. Burn cities to ash with devastating magic spells, slay epic bosses and turn your enemies into morbid servants.",
     "link": "https://store.steampowered.com/app/986040/The_Unliving/",
     "images": [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/986040/header.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/986040/capsule_616x353.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/986040/page_bg_raw.jpg"
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/986040/header.jpg?t=1778534103",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/986040/ss_05ff12ecf648bf40154882d787e58a12468d9f05.1920x1080.jpg?t=1778534103",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/986040/ss_451bbc925c811c20bb0e0f4538cb78d74ea55024.1920x1080.jpg?t=1778534103",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/986040/ss_c52c8a7518cc6ab5822c75cc53a4d6adba0e443f.1920x1080.jpg?t=1778534103",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/986040/ss_d2ce1e5e3c3c997e6f75fc795b793197ab909dd8.1920x1080.jpg?t=1778534103"
     ]
   },
   {
     "title": "BPM Bitcrushed",
     "studio": "Awe Interactive / Kwalee",
-    "desc": "Rhythm-driven roguelite dungeon crawler.",
+    "desc": "BPM Bitcrushed: A retro roguelite rhythm shooter where every shot, dodge, and jump must sync to the beat. Battle through dungeons where enemies attack in time with the music. Find epic loot and even import your own songs to create a custom, rhythm-fuelled soundtrack for your destruction!",
     "link": "https://store.steampowered.com/app/3448070/BPM_Bitcrushed/",
     "images": [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448070/1f0a058a93cfe5399a79652a086aea56b927b60c/header.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448070/ce439bbd7d320d82779eed16b89c94bc170936d6/capsule_616x353.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448070/0653e86864344cac6535aee477e18c2acfc96e08/page_bg_raw.jpg"
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3448070/1f0a058a93cfe5399a79652a086aea56b927b60c/header.jpg?t=1781278256",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3448070/0c020dc26c7a03e4181068eca9ad558f82f691c5/ss_0c020dc26c7a03e4181068eca9ad558f82f691c5.1920x1080.jpg?t=1781278256",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3448070/fe8ccd4d772c84ab1e8404771d855351fdf382c9/ss_fe8ccd4d772c84ab1e8404771d855351fdf382c9.1920x1080.jpg?t=1781278256",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3448070/e041cc4f78b58de34a70379bc714ff5921790a72/ss_e041cc4f78b58de34a70379bc714ff5921790a72.1920x1080.jpg?t=1781278256",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3448070/53a18bbfa7f968f8ed4dbffb9a7c47935b1b8408/ss_53a18bbfa7f968f8ed4dbffb9a7c47935b1b8408.1920x1080.jpg?t=1781278256"
     ]
   },
   {
     "title": "Wizard Cats",
-    "studio": "BigFrogg Studios",
-    "desc": "Spell-crafting action roguelite starring wizard cats.",
+    "studio": "BigFrogg Studios / BigFrogg Studios, Gamersky Games",
+    "desc": "Craft limitless spells! Destroy hordes of enemies and duel other master wizards!",
     "link": "https://store.steampowered.com/app/3176500/Wizard_Cats/",
     "images": [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3176500/ff9155af86ff504bbe1f8dd56e536ff5db701b27/header.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3176500/8a0193b77558a111407f6e58b989ea75691a9004/capsule_616x353.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3176500/264543e57b45740e1f096e7a3624887a2c8b001f/ss_264543e57b45740e1f096e7a3624887a2c8b001f.1920x1080.jpg"
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3176500/ff9155af86ff504bbe1f8dd56e536ff5db701b27/header.jpg?t=1780482125",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3176500/b484857b732fab84aca17cf7cc9f4f24a56e5ee4/ss_b484857b732fab84aca17cf7cc9f4f24a56e5ee4.1920x1080.jpg?t=1780482125",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3176500/05950c9a659628a1ba4ac0de196dd7866ed42fbb/ss_05950c9a659628a1ba4ac0de196dd7866ed42fbb.1920x1080.jpg?t=1780482125",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3176500/264543e57b45740e1f096e7a3624887a2c8b001f/ss_264543e57b45740e1f096e7a3624887a2c8b001f.1920x1080.jpg?t=1780482125",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3176500/bbce6d3a6a15935d24ead48b3a522f7ca32e7fc5/ss_bbce6d3a6a15935d24ead48b3a522f7ca32e7fc5.1920x1080.jpg?t=1780482125"
     ]
   },
   {
     "title": "Warhammer Survivors",
     "studio": "Auroch Digital",
-    "desc": "Bullet-heaven survivors set in the Warhammer universe.",
+    "desc": "Become the embodiment of bullet hell in Warhammer Survivors, a fast-paced roguelite survivors game. Play as characters from the Warhammer 40,000 and Warhammer: Age of Sigmar universes, collect and evolve iconic weapons and destroy endless swarms of enemies.",
     "link": "https://store.steampowered.com/app/3669620/Warhammer_Survivors/",
     "images": [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669620/19f2843fe6ced329627a945855ca989c6c0b6104/header_alt_assets_0.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669620/551bc7d10ffe0dab2dceeb6add75cf47a2e4d8ac/capsule_616x353.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669620/8242175bb7ed5927dd0ed09466a812e76aeb6c20/ss_8242175bb7ed5927dd0ed09466a812e76aeb6c20.1920x1080.jpg"
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/dc61fccdeec6b05a58fbcdd7b1d0bbbe1f6999ea/header.jpg?t=1779386349",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/ae287bc025cd1ed9fb66fd2b401d821e47e63d23/ss_ae287bc025cd1ed9fb66fd2b401d821e47e63d23.1920x1080.jpg?t=1779386349",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/958dbfcf743f05f8b1d8f7c7eb073174626cd8b8/ss_958dbfcf743f05f8b1d8f7c7eb073174626cd8b8.1920x1080.jpg?t=1779386349",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/5d0ffb2165d22728d70455e96e1fd7f929823390/ss_5d0ffb2165d22728d70455e96e1fd7f929823390.1920x1080.jpg?t=1779386349",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/f262acea8f86b4931a43a3e10f236bbd921d561f/ss_f262acea8f86b4931a43a3e10f236bbd921d561f.1920x1080.jpg?t=1779386349"
+    ]
+  },
+  {
+    "title": "Soulbound: Online",
+    "studio": "SpiderWare",
+    "desc": "Soulbound is a pixel-art action roguelite with an MMORPG overworld. Run fast-paced bullet-heaven dungeons solo or in 3-player co-op, raid bosses, craft gear from your loot, and build out your personal base. Join thousands of players in the quest to explore, trade, and build a new world.",
+    "link": "https://store.steampowered.com/app/4369490/Soulbound_Online/",
+    "images": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4369490/d37861b36c02d295d093f50bb9104ec1251ca544/header.jpg?t=1782926363",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4369490/30717ff79c750d9501dd6cf16f27bf73e2d20855/ss_30717ff79c750d9501dd6cf16f27bf73e2d20855.1920x1080.jpg?t=1782926363",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4369490/92a07fc2d824ec2648ab80e3801f7e42398905cb/ss_92a07fc2d824ec2648ab80e3801f7e42398905cb.1920x1080.jpg?t=1782926363",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4369490/b10a79eb19dd2f96a3a381574db5a6d549d73b45/ss_b10a79eb19dd2f96a3a381574db5a6d549d73b45.1920x1080.jpg?t=1782926363",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4369490/af0422c8be01dedfb1b5cbf4de47bef7ab18d935/ss_af0422c8be01dedfb1b5cbf4de47bef7ab18d935.1920x1080.jpg?t=1782926363"
     ]
   }
 ]

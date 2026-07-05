@@ -1,1 +1,26 @@
+<<<<<<< HEAD
 []
+=======
+[
+  {
+    "category": "animations",
+    "title": "",
+    "path": "assets/gallery/animations/1783166246426-Fire.gif"
+  },
+  {
+    "category": "animations",
+    "title": "",
+    "path": "assets/gallery/animations/1783168037758-Explosionn.gif"
+  },
+  {
+    "category": "animations",
+    "title": "",
+    "path": "assets/gallery/animations/1783194090060-HeroAnim.gif"
+  },
+  {
+    "category": "tiles",
+    "title": "",
+    "path": "assets/gallery/tiles/1783194355259-TileSet-test.png"
+  }
+]
+>>>>>>> 64d328f9ec3ba1ae65dd1787dbc7dce393bb193a
