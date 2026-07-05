@@ -16,8 +16,10 @@ data/games.json      auto-generated from links.json by the Action — don't hand
 data/jams.json       auto-generated from links.json by the Action — don't hand-edit
 data/gallery.json    written by admin.html when you upload a gallery image
 assets/gallery/…     your actual gallery image files, one folder per category
-scripts/fetch-metadata.mjs        the script the Action runs
-.github/workflows/sync-metadata.yml   the Action itself
+scripts/fetch-metadata.mjs        the script the Steam/itch sync Action runs
+scripts/scan-gallery.mjs          the script the gallery-scan Action runs
+.github/workflows/sync-metadata.yml   syncs data/games.json + data/jams.json from links.json
+.github/workflows/scan-gallery.yml    rebuilds data/gallery.json from assets/gallery/**
 ```
 
 ## One-time setup
@@ -61,12 +63,14 @@ treat the token itself like a password.
 - **Removing one:** click *Remove* next to it in the same panel.
 - **Gallery — work samples:** copy image files into the matching local folder
   (`assets/gallery/misc/`, `props/`, `animations/`, or `tiles/`) and `git push` as
-  usual — no admin form needed for the files themselves. Then open `/admin.html`
-  and click **Scan repository**: it lists what's actually in those four folders on
-  GitHub and rewrites `data/gallery.json` to match. Run it again any time you add,
-  rename, or delete files. Titles default to the filename (dashes/underscores
-  turned into spaces) — edit them in the admin page and click *Save titles*; a
-  later rescan keeps your edited titles for any file whose path hasn't changed.
+  usual. The "Scan gallery folders" Action runs automatically on that push and
+  rewrites `data/gallery.json` to match exactly what's in those four folders —
+  nothing to click. Add, rename, or delete a file and the next push picks it up.
+  Titles default to the filename (dashes/underscores turned into spaces); edit
+  them on the admin page and click *Save titles* — a later rescan keeps your
+  edited title for any file whose path hasn't changed. The admin page also has a
+  manual *Rescan now* button, useful if you want the update immediately instead
+  of waiting for the Action to finish.
 
 ## Notes & limits
 
