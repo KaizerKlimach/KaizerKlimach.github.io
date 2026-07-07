@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "category": "animations",
+    "path": "assets/gallery/animations/1783166246426-Fire.gif",
+    "title": "1783166246426 Fire"
+  },
+  {
+    "category": "animations",
+    "path": "assets/gallery/animations/1783168037758-Explosionn.gif",
+    "title": "1783168037758 Explosionn"
+  },
+  {
+    "category": "animations",
+    "path": "assets/gallery/animations/1783194090060-HeroAnim.gif",
+    "title": "1783194090060 HeroAnim"
+  },
+  {
+    "category": "tiles",
+    "path": "assets/gallery/tiles/1783194355259-TileSet-test.png",
+    "title": "1783194355259 TileSet test"
+  }
+]
